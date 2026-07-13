@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Mask Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <span class="eyebrow">COMPUTER VISION PROJECT</span>
+    <h1>Face Mask Detection</h1>
+    <p class="subtitle">Upload a clear face image and the trained model will classify whether a mask is present.</p>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}<p class="alert {{ category }}">{{ message }}</p>{% endfor %}
+    {% endwith %}
+
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+      <label class="upload" for="image"><span>Choose an image</span><small>JPG, PNG, or WEBP · max 5 MB</small></label>
+      <input id="image" type="file" name="image" accept="image/png,image/jpeg,image/webp" required>
+      <button type="submit">Detect mask</button>
+    </form>
+
+    {% if image %}
+      <section class="result">
+        <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="Uploaded image">
+        {% if prediction %}
+          <div><h2>{{ prediction }}</h2><p>Confidence: {{ confidence }}%</p></div>
+        {% else %}
+          <div><h2>Model not trained yet</h2><p>Add labelled images and run <code>python train_model.py</code>, then upload again.</p></div>
+        {% endif %}
+      </section>
+    {% elif not model_ready %}
+      <p class="status">The web interface is ready. Train the included model once to enable predictions.</p>
+    {% endif %}
+  </main>
+</body>
+</html>
