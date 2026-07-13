@@ -31,10 +31,3 @@ Face-Mask-Detection/dataset/
 
 The included pre-trained model at `Face-Mask-Detection/model/mask_detector.h5` is used automatically by the web app. The optional training script can be used if you want to replace it with your own model.
 
-## Train the classifier (optional, required for live predictions)
-
-After placing images in both dataset folders, return to the project root and run:
-
-```powershell
-py train_model.py
-```
