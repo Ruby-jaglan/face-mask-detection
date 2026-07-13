@@ -1,6 +1,9 @@
 # Face Mask Detection
 
-Flask application for classifying uploaded face images using an included, pre-trained Keras model.
+The Face Mask Detection System is a deep learning-based web application developed using Python, TensorFlow/Keras, Flask, OpenCV, NumPy, and Pillow. The system uses a Convolutional Neural Network (CNN) to classify uploaded facial images into two categories: With Mask and Without Mask. It processes the input image, extracts meaningful features, and predicts the result with a confidence score through an easy-to-use web interface.
+This project demonstrates the practical application of Artificial Intelligence and Image Processing in solving real-world problems. It provides fast, accurate, and automated detection without requiring manual intervention. The system is designed to be user-friendly, allowing users to upload an image and instantly receive the prediction.
+It also serves as an educational project for learning deep learning model training, image classification, and web application deployment using Flask.
+Overall, this project highlights how modern AI technologies can be effectively integrated into practical applications to improve public safety, reduce manual effort, and support intelligent decision-making through automated face mask detection.
 
 ## Run locally
 
